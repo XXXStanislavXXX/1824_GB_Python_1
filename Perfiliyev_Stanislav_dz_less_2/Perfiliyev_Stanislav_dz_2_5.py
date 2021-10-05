@@ -15,7 +15,17 @@
 
 goods = [30, 52.4, 46, 35, 11, 17.3, 21.6, 45, 24, 31.8, 58, 62.5, 11.3, 79.2, 74, 75.3, 46.8, 11.4, 13, 17]
 
-# выводим в одну строку через запятую
 
-goods = ', '.join(goods)
-print(goods)
+def pattern(list_name):
+    number_format = ''
+    for price in list_name:
+        number_format += f'{int(price):d} руб {int(round((price - int(price)) * 100)):02d} коп, '
+    return number_format
+
+print(pattern(goods), id(goods))
+goods.sort()
+print(pattern(goods), id(goods))  # по возрастанию
+cheapest = list(reversed(goods))
+print(pattern(cheapest), id(cheapest))  # по убиванию
+most_expensive = list(cheapest[:5])
+print(pattern(most_expensive), id(most_expensive))  # самые дорогие

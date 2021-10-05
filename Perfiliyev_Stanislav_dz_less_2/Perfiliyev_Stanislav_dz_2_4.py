@@ -10,23 +10,30 @@
 """
 
 data = ['инженер-конструктор Игорь', 'главный бухгалтер МАРИНА', 'токарь высшего разряда нИКОЛАй', 'директор аэлита']
+
+id(data)  # можно ли не создавая новый список
+
 for name in data:
-    change_name = '!'
-    letter = ''
-    name_to_change = name[::-1]
-    for letter in name_to_change:
+
+    # так как шагать будем с конца в начало => дадим умолчание '!', чтобы не дописывать к конечный принт
+
+    change_name = '!'  # наша ' точка отсчета '
+    name_to_change = name[::-1]  # определяем наше имя на замену
+    for letter in name_to_change:  # вычленяем имя из билиберды
         change_name += letter
-        if ord(letter) == 32:
+        if ord(letter) == 32:  # берем кракозябру до первого пробела с конца
             change_name = change_name[::-1]
             break
-    print('Привет,' + change_name.title())
+
+    print('Привет,' + change_name.title())  # итог
+    print(id(data))  # можно ли не создавая новый список
 
 # Шпаргалка
 
 """
 
-ord_list = ' !"№;%:?*()_-+=/*0123456789abcdefghijklmnopqrstuvwxyz'
+ord_list = ' '
 for number in ord_list:
     print(ord(number), end = " , ")
-    
+
 """
