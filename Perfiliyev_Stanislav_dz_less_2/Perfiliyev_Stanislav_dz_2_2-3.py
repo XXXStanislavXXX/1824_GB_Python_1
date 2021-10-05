@@ -20,15 +20,25 @@ print(result)
 """
 
 # задаем переменную списка
+
 condition = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
+
+# реверсируем список, чтобы поставить ковычки с одной стороны значения
+
 condition.reverse()
 for value in condition:
     if ord(value[-1]) in range(48, 58):
         condition.insert((condition.index(value) + 1), '"')
 condition.reverse()
+
+# тоже самое с другой стороны
+
 for value in condition:
     if ord(value[-1]) in range(48, 58):
         condition.insert((condition.index(value) + 1), '"')
+
+# форматируем числовые значения
+
 for value in condition:
     if ord(value[0]) == 43 or ord(value[0]) == 45:
         new = int(value[1:])
@@ -41,8 +51,24 @@ for value in condition:
         new_value = '{:02d}'.format(new)
         index = condition.index(value)
         condition[index] = new_value
+
+# превращаем список в строку
+
 condition = (" ".join(map(str, condition)))
 day_time, minutes, temperature = 5, "17", 5
+
+# форматируем строку
+
 condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}" градусов'
 
+# выводим результат
+
 print(condition)
+
+"""
+
+как мне кажется, чтобы выявить численные значения в списке, которые уже заданны как численные:
+result = [x for x in condition if type(x) != str]
+print(result)
+
+"""
