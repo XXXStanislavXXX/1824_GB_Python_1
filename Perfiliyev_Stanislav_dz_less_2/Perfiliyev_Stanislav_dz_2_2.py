@@ -41,16 +41,7 @@ for value in condition:
         new_value = '{:02d}'.format(new)
         index = condition.index(value)
         condition[index] = new_value
-result = ' '.join(condition)
 condition = (" ".join(map(str, condition)))
-day_time, minutes, temperature = 5, "17", 5
-condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}" градусов'
-
-print(condition)
-# превращаем список в строку
-condition = (" ".join(map(str, condition)))
-
-# форматируем строку
 day_time, minutes, temperature = 5, "17", 5
 condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}" градусов'
 
