@@ -21,20 +21,37 @@ print(result)
 
 # задаем переменную списка
 condition = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
-condition_str = ' '.join(condition)
-print(condition_str)
+condition.reverse()
+for value in condition:
+    if ord(value[-1]) in range(48, 58):
+        condition.insert((condition.index(value) + 1), '"')
+condition.reverse()
+for value in condition:
+    if ord(value[-1]) in range(48, 58):
+        condition.insert((condition.index(value) + 1), '"')
+for value in condition:
+    if ord(value[0]) == 43 or ord(value[0]) == 45:
+        new = int(value[1:])
+        new_value = '{:02d}'.format(new)
+        index = condition.index(value)
+        condition[index] = value[:1] + new_value
+for value in condition:
+    if ord(value[0]) in range(48, 58):
+        new = int(value)
+        new_value = '{:02d}'.format(new)
+        index = condition.index(value)
+        condition[index] = new_value
+result = ' '.join(condition)
+condition = (" ".join(map(str, condition)))
+day_time, minutes, temperature = 5, "17", 5
+condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}" градусов'
 
-result = [x for x in condition_str if type(x) != str]
-print(result)
-
+print(condition)
 # превращаем список в строку
 condition = (" ".join(map(str, condition)))
 
 # форматируем строку
 day_time, minutes, temperature = 5, "17", 5
-condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}"'
+condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}" градусов'
 
 print(condition)
-
-
-
