@@ -8,3 +8,28 @@
 как привести их к корректному виду. Можно ли при этом не создавать новый список?
 
 """
+
+data = ['инженер-конструктор Игорь', 'главный бухгалтер МАРИНА', 'токарь высшего разряда нИКОЛАй', 'директор аэлита']
+for name in data:
+    change_name = '!'
+    letter = ''
+    name_to_change = name[::-1]
+    for letter in name_to_change:
+        change_name += letter
+        if ord(letter) == 32:
+            change_name = change_name[::-1]
+            break
+    print('Привет,' + change_name.title())
+
+# Шпаргалка
+
+"""
+
+ord_list = ' !"№;%:?*()_-+=/*0123456789abcdefghijklmnopqrstuvwxyz'
+for number in ord_list:
+    print(ord(number), end = " , ")
+    
+"""
+
+
+

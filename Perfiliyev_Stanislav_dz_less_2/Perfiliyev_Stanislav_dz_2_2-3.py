@@ -55,6 +55,9 @@ for value in condition:
 # превращаем список в строку
 
 condition = (" ".join(map(str, condition)))
+
+# задаем переменные
+
 day_time, minutes, temperature = 5, "17", 5
 
 # форматируем строку
@@ -65,8 +68,17 @@ condition = f'в "{day_time:02d}" часов "{minutes}" минут темпер
 
 print(condition)
 
+# не прикольно было лазить в табличку постоянно, потому вывел себе сюда
+
 """
 
+ord_list = ' !"№;%:?*()_-+=/*0123456789abcdefghijklmnopqrstuvwxyz'
+for number in order_list:
+    print(ord(number), end = " , ")
+
+"""
+
+"""
 как мне кажется, чтобы выявить численные значения в списке, которые уже заданны как численные:
 result = [x for x in condition if type(x) != str]
 print(result)
