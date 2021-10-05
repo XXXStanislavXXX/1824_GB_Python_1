@@ -30,6 +30,3 @@ for number in ord_list:
     print(ord(number), end = " , ")
     
 """
-
-
-
