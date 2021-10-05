@@ -11,7 +11,8 @@
 в "05" часов "17" минут температура воздуха была "+05" градусов
 
 Подумать, какое условие записать, чтобы выявить числа среди элементов списка? Как модифицировать это условие для
-чисел со знаком?
+чисел со знаком? result = [x for x in condition if type(x) != str]
+print(result)
 
 Примечание: если обособление чисел кавычками не будет получаться - можете вернуться к его реализации позже. Главное:
 дополнить числа до двух разрядов нулём!
@@ -20,14 +21,18 @@
 
 # задаем переменную списка
 condition = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
-print(type(condition))
+condition_str = ' '.join(condition)
+print(condition_str)
+
+result = [x for x in condition_str if type(x) != str]
+print(result)
 
 # превращаем список в строку
 condition = (" ".join(map(str, condition)))
 
 # форматируем строку
 day_time, minutes, temperature = 5, "17", 5
-condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была +"{temperature:02d}"'
+condition = f'в "{day_time:02d}" часов "{minutes}" минут температура воздуха была "+{temperature:02d}"'
 
 print(condition)
 
