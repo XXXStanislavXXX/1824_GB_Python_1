@@ -40,6 +40,20 @@ def extract_date() -> datetime.date:
     return cur_date
 
 
+def currency_rates(code: str):
+    code = code.upper()
+    data = {}
+    ch_code = extract_data("CharCode")
+    val = extract_data("Value")
+    zip_res = zip(ch_code, val)
+    for name, value in zip_res:
+        data.setdefault(name, value)
+    if code in data:
+        new_data = round(float(str(data[code]).replace(",", ".")), 2)
+        return new_data, extract_date()
+    else:
+        return None, extract_date()
+
 if __name__ == '__main__':
     # пример использования
     name_valutes = extract_data('Name')
