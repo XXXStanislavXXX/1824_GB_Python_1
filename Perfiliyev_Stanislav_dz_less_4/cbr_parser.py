@@ -30,7 +30,7 @@ def extract_data(tag: str) -> typing.List:
 
 
 def extract_date() -> datetime.date:
-    """Извлекает текущую дату из данных ЦБР"""
+    """Извлекает текущую дату из данных"""
     res = send_request()
     data = re.findall(r'<ValCurs Date="(.*)" name="Foreign Currency Market"', str(res.content))
     data_parts = data[0].split(".")
