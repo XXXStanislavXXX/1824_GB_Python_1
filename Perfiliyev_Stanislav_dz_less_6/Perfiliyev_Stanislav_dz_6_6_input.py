@@ -28,4 +28,4 @@ def input_sales(argv):  # Ввод суммы продаж за день, для
 
 if __name__ == '__main__':
     import sys
-    exit(input_sales(sys.argv))
+
